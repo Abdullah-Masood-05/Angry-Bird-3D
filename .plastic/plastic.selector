@@ -1,0 +1,4 @@
+repository "Angry Bird 3D 2025-11-28_00-42-14/Angry Bird 3D@18968245337305@cloud"
+  path "/"
+    br "/main"
+    co "/main"
