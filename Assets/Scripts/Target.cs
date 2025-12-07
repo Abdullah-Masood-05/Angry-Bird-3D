@@ -5,7 +5,7 @@ public class Target : MonoBehaviour
 {
     [Header("Target Health")]
     public float maxHealth = 50f;
-    public float health;
+    private float health = 100;
 
     [Header("Damage Settings")]
     public float minImpactForDamage = 2f; // ignore tiny taps
@@ -57,4 +57,3 @@ public class Target : MonoBehaviour
         Destroy(gameObject);
     }
 }
-    

@@ -37,3 +37,4 @@ public class CameraShake : MonoBehaviour
         shakeMagnitude = magnitude;
     }
 }
+//jkhfjshdf
