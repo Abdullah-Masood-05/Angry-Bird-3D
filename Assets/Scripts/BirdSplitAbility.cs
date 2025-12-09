@@ -51,19 +51,20 @@ public class BirdSplitAbility : MonoBehaviour
         Vector3 dirRight = Quaternion.Euler(0, spreadAngle, 0) * baseDir;
 
         float speed = originalVelocity.magnitude;
-        Debug.Log($"BirdSplitAbility: Spawning small birds with speed {speed:F1}");
-        SpawnSmall(dirLeft, speed);
-        SpawnSmall(baseDir, speed);
-        SpawnSmall(dirRight, speed);
 
-        // VERY IMPORTANT: notify manager before destroying
-        if (manager != null)
-            manager.OnBirdLaunched(gameObject);
+        GameObject leftBird = SpawnSmall(dirLeft, speed);
+        GameObject centerBird = SpawnSmall(baseDir, speed);
+        GameObject rightBird = SpawnSmall(dirRight, speed);
+
+        // Destroy the birds after 4 seconds
+        Destroy(leftBird, 4f);
+        Destroy(centerBird, 4f);
+        Destroy(rightBird, 4f);
 
         Destroy(gameObject);
     }
 
-    private void SpawnSmall(Vector3 direction, float speed)
+    private GameObject SpawnSmall(Vector3 direction, float speed)
     {
         GameObject newBird = Instantiate(smallBirdPrefab, transform.position, Quaternion.identity);
 
@@ -80,5 +81,8 @@ public class BirdSplitAbility : MonoBehaviour
         {
             bl.enabled = false;  // Prevent drag/launch logic from interfering
         }
+
+        return newBird; // Return the instantiated bird so we can destroy it later
     }
 }
+
