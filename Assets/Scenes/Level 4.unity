@@ -2569,6 +2569,8 @@ MonoBehaviour:
   impulseToDamage: 1
   scoreValue: 100
   destroyVFX: {fileID: 0}
+  directHitSound: {fileID: 0}
+  indirectHitSound: {fileID: 0}
 --- !u!54 &536326946
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2977,6 +2979,8 @@ MonoBehaviour:
   impulseToDamage: 1
   scoreValue: 100
   destroyVFX: {fileID: 0}
+  directHitSound: {fileID: 0}
+  indirectHitSound: {fileID: 0}
 --- !u!54 &672422719
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3478,6 +3482,7 @@ MonoBehaviour:
   launchAngle: 15
   maxDragDistance: 5
   maxLaunchSpeed: 40
+  launchSound: {fileID: 8300000, guid: a5e58e37029711747952c2247848cab6, type: 3}
 --- !u!1 &754870149
 GameObject:
   m_ObjectHideFlags: 0
@@ -3531,6 +3536,8 @@ MonoBehaviour:
   impulseToDamage: 1
   scoreValue: 100
   destroyVFX: {fileID: 0}
+  directHitSound: {fileID: 0}
+  indirectHitSound: {fileID: 0}
 --- !u!54 &754870152
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4266,6 +4273,8 @@ MonoBehaviour:
   impulseToDamage: 1
   scoreValue: 100
   destroyVFX: {fileID: 0}
+  directHitSound: {fileID: 8300000, guid: e41b90f4780a3fb4eb1c08672d950bf9, type: 3}
+  indirectHitSound: {fileID: 8300000, guid: 7afbb5e01287df446b1f0d5c2bf78fb9, type: 3}
 --- !u!54 &886865189
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4336,6 +4345,8 @@ MonoBehaviour:
   impulseToDamage: 1
   scoreValue: 100
   destroyVFX: {fileID: 0}
+  directHitSound: {fileID: 8300000, guid: e41b90f4780a3fb4eb1c08672d950bf9, type: 3}
+  indirectHitSound: {fileID: 8300000, guid: 7afbb5e01287df446b1f0d5c2bf78fb9, type: 3}
 --- !u!54 &909309351
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5100,6 +5111,8 @@ MonoBehaviour:
   impulseToDamage: 1
   scoreValue: 100
   destroyVFX: {fileID: 0}
+  directHitSound: {fileID: 8300000, guid: e41b90f4780a3fb4eb1c08672d950bf9, type: 3}
+  indirectHitSound: {fileID: 8300000, guid: 7afbb5e01287df446b1f0d5c2bf78fb9, type: 3}
 --- !u!54 &1139208004
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7077,6 +7090,8 @@ MonoBehaviour:
   impulseToDamage: 1
   scoreValue: 100
   destroyVFX: {fileID: 0}
+  directHitSound: {fileID: 0}
+  indirectHitSound: {fileID: 0}
 --- !u!54 &1343075967
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8374,6 +8389,7 @@ MonoBehaviour:
   launchAngle: 15
   maxDragDistance: 5
   maxLaunchSpeed: 40
+  launchSound: {fileID: 0}
 --- !u!1 &1508480601 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5299359348398662678, guid: cbbd9532a57af274a9f0db14bc21fe6b,
@@ -8743,6 +8759,7 @@ MonoBehaviour:
   launchAngle: 15
   maxDragDistance: 5
   maxLaunchSpeed: 40
+  launchSound: {fileID: 8300000, guid: a5e58e37029711747952c2247848cab6, type: 3}
 --- !u!135 &1526210024
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -10397,6 +10414,8 @@ MonoBehaviour:
   impulseToDamage: 1
   scoreValue: 100
   destroyVFX: {fileID: 0}
+  directHitSound: {fileID: 8300000, guid: e41b90f4780a3fb4eb1c08672d950bf9, type: 3}
+  indirectHitSound: {fileID: 8300000, guid: 7afbb5e01287df446b1f0d5c2bf78fb9, type: 3}
 --- !u!1 &1741735914
 GameObject:
   m_ObjectHideFlags: 0
@@ -10668,6 +10687,8 @@ MonoBehaviour:
   impulseToDamage: 1
   scoreValue: 100
   destroyVFX: {fileID: 0}
+  directHitSound: {fileID: 8300000, guid: e41b90f4780a3fb4eb1c08672d950bf9, type: 3}
+  indirectHitSound: {fileID: 8300000, guid: 7afbb5e01287df446b1f0d5c2bf78fb9, type: 3}
 --- !u!54 &1778348912
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11553,6 +11574,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TargetManager
   winLoseText: {fileID: 1645256028}
+  scoreText: {fileID: 0}
   delayBeforeNextLevel: 2
 --- !u!4 &1874311617
 Transform:
@@ -11599,6 +11621,7 @@ MonoBehaviour:
   launchAngle: 15
   maxDragDistance: 5
   maxLaunchSpeed: 40
+  launchSound: {fileID: 8300000, guid: a5e58e37029711747952c2247848cab6, type: 3}
 --- !u!120 &1888269706
 LineRenderer:
   serializedVersion: 2

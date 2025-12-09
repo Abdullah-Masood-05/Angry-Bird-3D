@@ -2431,6 +2431,7 @@ MonoBehaviour:
   launchAngle: 15
   maxDragDistance: 5
   maxLaunchSpeed: 40
+  launchSound: {fileID: 8300000, guid: a5e58e37029711747952c2247848cab6, type: 3}
 --- !u!1001 &843877633
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3031,6 +3032,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TargetManager
   winLoseText: {fileID: 729881262}
+  scoreText: {fileID: 0}
   delayBeforeNextLevel: 2
 --- !u!4 &1139551751
 Transform:
@@ -4123,6 +4125,7 @@ MonoBehaviour:
   launchAngle: 15
   maxDragDistance: 5
   maxLaunchSpeed: 40
+  launchSound: {fileID: 0}
 --- !u!1 &1508480601 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5299359348398662678, guid: cbbd9532a57af274a9f0db14bc21fe6b,
@@ -4492,6 +4495,7 @@ MonoBehaviour:
   launchAngle: 15
   maxDragDistance: 5
   maxLaunchSpeed: 40
+  launchSound: {fileID: 8300000, guid: a5e58e37029711747952c2247848cab6, type: 3}
 --- !u!135 &1526210024
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5316,6 +5320,8 @@ MonoBehaviour:
   impulseToDamage: 1
   scoreValue: 100
   destroyVFX: {fileID: 0}
+  directHitSound: {fileID: 8300000, guid: e41b90f4780a3fb4eb1c08672d950bf9, type: 3}
+  indirectHitSound: {fileID: 8300000, guid: 7afbb5e01287df446b1f0d5c2bf78fb9, type: 3}
 --- !u!1001 &1799345270
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5445,6 +5451,7 @@ MonoBehaviour:
   launchAngle: 15
   maxDragDistance: 5
   maxLaunchSpeed: 40
+  launchSound: {fileID: 8300000, guid: a5e58e37029711747952c2247848cab6, type: 3}
 --- !u!120 &1888269706
 LineRenderer:
   serializedVersion: 2
