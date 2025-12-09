@@ -4430,6 +4430,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1526210026}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c9621a805824cb1418d9925184c65cff,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1526210027}
   m_SourcePrefab: {fileID: 100100000, guid: c9621a805824cb1418d9925184c65cff, type: 3}
 --- !u!1 &1526210021 stripped
 GameObject:
@@ -4619,6 +4623,21 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!114 &1526210027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526210021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5303b0ed7e02616439935aeec308ea61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BirdSplitAbility
+  smallBirdPrefab: {fileID: 3180162738514521285, guid: 42073213c3af01b48ba99fca3f25fa54,
+    type: 3}
+  spreadAngle: 15
 --- !u!1 &1547971976
 GameObject:
   m_ObjectHideFlags: 0
