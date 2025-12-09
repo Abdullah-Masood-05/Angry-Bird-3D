@@ -10,14 +10,17 @@ public class BirdManager : MonoBehaviour
     public Transform spawnPoint;
     public UIManager uiManager;
 
+    [Header("Camera")]
+    public FixedSlingshotCamera slingshotCamera; // Reference to camera
+
     [Header("Transition")]
     public float transitionDuration = 1f;
     public AnimationCurve transitionCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
 
     [Header("Gameplay")]
     public int maxBirds = 3;
-    public float destroyDelay = 4f;
-    public float nextSpawnDelay = 1f;
+    public float destroyDelay = 5f;  // Increased for better camera transition
+    public float nextSpawnDelay = 2f; // Increased to allow camera to fully return
 
     private Vector3[] originalPositions;
     private Quaternion[] originalRotations;
@@ -131,6 +134,12 @@ public class BirdManager : MonoBehaviour
             bl.Setup(spawnPoint.position, this);
         }
 
+        // Tell camera to track this bird
+        // if (slingshotCamera != null)
+        // {
+        //     slingshotCamera.SetBirdToFollow(bird.transform);
+        // }
+
         isTransitioning = false;
     }
 
@@ -148,7 +157,7 @@ public class BirdManager : MonoBehaviour
             Destroy(bird);
 
         yield return new WaitForSeconds(nextSpawnDelay);
-
+        //sdfsdf
         SpawnNextBird();
     }
 
