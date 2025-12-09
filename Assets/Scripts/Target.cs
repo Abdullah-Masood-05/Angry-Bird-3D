@@ -8,7 +8,7 @@ public class Target : MonoBehaviour
     private float health;
 
     [Header("Damage Settings")]
-    public float minImpactForDamage = 2f; // ignore tiny taps
+    public float minImpactForDamage = 2f; // ignore tinsdsdy taps
     public float impulseToDamage = 1f;    // scales impulse -> damage
 
     [Header("Optional")]
@@ -67,6 +67,21 @@ public class Target : MonoBehaviour
         return false;
     }
 
+    // void Die()
+    // {
+    //     Debug.Log($"{gameObject.name} DESTROYED!");
+
+    //     if (destroyVFX != null)
+    //     {
+    //         Instantiate(destroyVFX, transform.position, Quaternion.identity);
+    //     }
+
+    //     // Add to score
+    //     ScoreManager.Instance?.AddScore(scoreValue);
+    //     Debug.Log($"Score +{scoreValue}");
+
+    //     Destroy(gameObject);
+    // }
     void Die()
     {
         Debug.Log($"{gameObject.name} DESTROYED!");
@@ -80,6 +95,10 @@ public class Target : MonoBehaviour
         ScoreManager.Instance?.AddScore(scoreValue);
         Debug.Log($"Score +{scoreValue}");
 
+        // Notify manager
+        TargetManager.Instance?.TargetDestroyed();
+
         Destroy(gameObject);
     }
+
 }
