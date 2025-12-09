@@ -15,9 +15,24 @@ public class Target : MonoBehaviour
     public int scoreValue = 100;          // points awarded when destroyed
     public GameObject destroyVFX;         // optional particle effect prefab
 
+    [Header("Sound Effects")]
+    public AudioClip directHitSound;      // sound for direct bird hit
+    public AudioClip indirectHitSound;    // sound for indirect hit
+
+    private AudioSource audioSource;
+
     void Start()
     {
         health = maxHealth;
+        
+        // Get or add AudioSource component
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+            audioSource.playOnAwake = false;
+            audioSource.spatialBlend = 1f; // 3D sound
+        }
     }
 
     void OnCollisionEnter(Collision collision)
