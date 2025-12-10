@@ -3,7 +3,7 @@ using UnityEngine;
 public class SlingshotController : MonoBehaviour
 {
     [Header("Animation")]
-    public Animator animator;   // Animator containing Idle, Tension, Release states
+    public Animator animator;
 
     [Header("Anchor Points")]
     public Transform leftAnchor;
@@ -52,9 +52,7 @@ public class SlingshotController : MonoBehaviour
         band.useWorldSpace = true;
     }
 
-    /// <summary>
-    /// Update band positions while dragging (Tension animation)
-    /// </summary>
+
     public void UpdateBands(Vector3 birdPosition)
     {
         isStretched = true;
@@ -79,9 +77,6 @@ public class SlingshotController : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Reset bands instantly (Idle animation)
-    /// </summary>
     public void ResetBands()
     {
         isStretched = false;
@@ -102,9 +97,7 @@ public class SlingshotController : MonoBehaviour
         PlayIdleAnimation();
     }
 
-    /// <summary>
-    /// Smoothly animate release (Release → Idle)
-    /// </summary>
+
     public void AnimateReset(float duration = 0.15f)
     {
         if (!isStretched) return;
@@ -134,9 +127,7 @@ public class SlingshotController : MonoBehaviour
         ResetBands();
     }
 
-    /// ===============================
-    /// ANIMATION HELPERS
-    /// ===============================
+
 
     void PlayIdleAnimation()
     {
@@ -168,9 +159,6 @@ public class SlingshotController : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Toggle bands on/off for cinematic or effects
-    /// </summary>
     public void ShowBands(bool show)
     {
         if (leftBand) leftBand.enabled = show;

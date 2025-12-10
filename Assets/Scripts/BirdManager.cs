@@ -169,19 +169,6 @@ public class BirdManager : MonoBehaviour
 
         Debug.Log("Birds Left: " + (maxBirds - currentBirdIndex));
     }
-
-    // private void LoseGame()
-    // {
-    //     Debug.Log("GAME OVER — YOU LOSE");
-
-    //     if (winLoseText != null)
-    //     {
-    //         winLoseText.text = "YOU LOSE!";
-    //         winLoseText.gameObject.SetActive(true);
-    //     }
-
-    //     Time.timeScale = 0.4f; // Optional dramatic slow-motion
-    // }
     private void LoseGame()
     {
         Debug.Log("GAME OVER — YOU LOSE");

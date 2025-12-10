@@ -72,17 +72,16 @@ public class BirdSplitAbility : MonoBehaviour
         if (rbSmall != null)
         {
             rbSmall.isKinematic = false;
-            rbSmall.linearVelocity = direction * speed;   // KEY FIX
+            rbSmall.linearVelocity = direction * speed;   
         }
 
-        // Make sure BirdLaunch does NOT override physics
         BirdLaunch bl = newBird.GetComponent<BirdLaunch>();
         if (bl != null)
         {
-            bl.enabled = false;  // Prevent drag/launch logic from interfering
+            bl.enabled = false;  
         }
 
-        return newBird; // Return the instantiated bird so we can destroy it later
+        return newBird; 
     }
 }
 

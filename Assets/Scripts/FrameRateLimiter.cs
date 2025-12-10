@@ -8,6 +8,6 @@ public class FrameRateLimiter : MonoBehaviour
     void Awake()
     {
         Application.targetFrameRate = targetFrameRate;
-        QualitySettings.vSyncCount = 0; // Disable VSync to allow frame rate limiting
+        QualitySettings.vSyncCount = 0;
     }
-}//sdfsdfsdf
+}
