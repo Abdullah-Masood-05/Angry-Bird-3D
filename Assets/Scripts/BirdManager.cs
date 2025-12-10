@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.Cinemachine;
 using TMPro;
+using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class BirdManager : MonoBehaviour
 {
@@ -10,10 +12,13 @@ public class BirdManager : MonoBehaviour
     public GameObject[] birds;
     public Transform spawnPoint;
     public UIManager uiManager;
+    public TextMeshProUGUI timerText;
+    public float levelTimeLimit = 20f;
+    private float timeRemaining;
+    int totalScore = 0;
+    private bool timerRunning = false;
 
-    [Header("Camera")]
-    public FixedSlingshotCamera slingshotCamera;
-
+    public float delayBeforeNextLevel = 2f;
     [Header("Transition")]
     public float transitionDuration = 1f;
     public AnimationCurve transitionCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
@@ -24,7 +29,7 @@ public class BirdManager : MonoBehaviour
     public float nextSpawnDelay = 2f;
 
     [Header("UI")]
-    public TextMeshProUGUI winLoseText;   // Drag your WinLose TMP text here
+    public TextMeshProUGUI winLoseText;
 
     private Vector3[] originalPositions;
     private Quaternion[] originalRotations;
@@ -32,9 +37,13 @@ public class BirdManager : MonoBehaviour
     private GameObject currentBird;
     private int currentBirdIndex = 0;
     private bool isTransitioning = false;
+    private bool levelComplete = false;
 
     void Start()
     {
+        timeRemaining = levelTimeLimit;
+        UpdateTimerUI();
+        StartTimer();
         if (spawnPoint == null)
         {
             Debug.LogError("BirdManager: spawnPoint is not assigned!");
@@ -66,15 +75,78 @@ public class BirdManager : MonoBehaviour
         maxBirds = Mathf.Min(maxBirds, birds.Length);
         SpawnNextBird();
     }
+    void Update()
+    {
+        if (timerRunning)
+        {
+            timeRemaining -= Time.deltaTime;
+            UpdateTimerUI();
+
+            Debug.Log("timeremaining: " + timeRemaining);
+            if (timeRemaining <= 0f)
+            {
+                timeRemaining = 0f;
+                TimerExpired();
+            }
+        }
+    }
+
+    private void TimerExpired()
+    {
+        if (levelComplete) return;
+
+        StopTimer();
+        levelComplete = true;
+
+        Debug.Log("Bird Manager: TIME'S UP!");
+        StartCoroutine(WinSequence());
+
+    }
+    private void StopTimer()
+    {
+        timerRunning = false;
+    }
+    private IEnumerator WinSequence()
+    {
+        int currentIndex = SceneManager.GetActiveScene().buildIndex;
+        int lastLevelIndex = SceneManager.sceneCountInBuildSettings - 1;
+
+        // LAST LEVEL → FINAL WIN SCREEN
+        if (currentIndex == lastLevelIndex)
+        {
+            if (winLoseText != null)
+            {
+                winLoseText.text =
+                    "ALL LEVELS COMPLETE!\nYOU WIN!\n\nFINAL SCORE: " + totalScore;
+
+                winLoseText.gameObject.SetActive(true);
+            }
+
+            yield return new WaitForSeconds(delayBeforeNextLevel);
+            Debug.Log("GAME FINISHED");
+            yield break;
+        }
+
+        // NORMAL LEVEL WIN
+        if (winLoseText != null)
+        {
+            winLoseText.text =
+                "LEVEL COMPLETE!\n+" + " points";
+
+            winLoseText.gameObject.SetActive(true);
+        }
+
+        yield return new WaitForSeconds(delayBeforeNextLevel);
+        SceneManager.LoadScene(currentIndex + 1);
+    }
 
     public void SpawnNextBird()
     {
-        // OUT OF BIRDS → CHECK LOSS
+
         if (currentBirdIndex >= maxBirds || currentBirdIndex >= birds.Length)
         {
             Debug.Log("BirdManager: No more birds available.");
 
-            // LOSS CONDITION
             if (TargetManager.Instance != null && !TargetManager.Instance.AllTargetsDestroyed())
             {
                 LoseGame();
@@ -103,7 +175,7 @@ public class BirdManager : MonoBehaviour
             originalRotations[currentBirdIndex]
         ));
 
-        UpdateUI(); // Update UI without incrementing the count here
+        UpdateUI();
     }
 
     private IEnumerator TransitionBirdToSpawnPoint(GameObject bird, Vector3 fromPosition, Quaternion fromRotation)
@@ -151,11 +223,8 @@ public class BirdManager : MonoBehaviour
 
         if (bird != null)
             Destroy(bird);
-
-        // ---- FIX: decrement bird count AFTER destruction ----
         currentBirdIndex++;
         UpdateUI();
-        // -----------------------------------------------------
 
         yield return new WaitForSeconds(nextSpawnDelay);
 
@@ -173,11 +242,37 @@ public class BirdManager : MonoBehaviour
     {
         Debug.Log("GAME OVER — YOU LOSE");
 
-        // APPLY SCORE PENALTY
+
         if (TargetManager.Instance != null)
             TargetManager.Instance.ApplyLossPenalty();
 
-        Time.timeScale = 0.4f; // dramatic slow-motion
+        Time.timeScale = 0.4f;
     }
+    void UpdateTimerUI()
+    {
+        if (timerText != null)
+        {
+            int seconds = Mathf.FloorToInt(timeRemaining % 60f);
+            int minutes = 0;
+            timerText.text = string.Format("Time: {0:00}:{1:00}", minutes, seconds);
 
+            if (timeRemaining <= 10f)
+            {
+                timerText.color = Color.red;
+            }
+            else if (timeRemaining <= 30f)
+            {
+                timerText.color = Color.yellow;
+            }
+            else
+            {
+                timerText.color = Color.white;
+            }
+        }
+    }
+    private void StartTimer()
+    {
+        timerRunning = true;
+        Debug.Log("GameManager: Timer started - " + levelTimeLimit + " seconds");
+    }
 }

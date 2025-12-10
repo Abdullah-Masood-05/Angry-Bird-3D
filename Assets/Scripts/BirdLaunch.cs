@@ -54,7 +54,7 @@ public class BirdLaunch : MonoBehaviour
             lineRenderer.enabled = false;
         }
 
-        // 🔊 AudioSource setup
+        // AudioSource setup
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.playOnAwake = false;
         audioSource.spatialBlend = 1f;

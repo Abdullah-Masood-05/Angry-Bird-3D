@@ -6,8 +6,6 @@ using TMPro;
 public class TargetManager : MonoBehaviour
 {
     public static TargetManager Instance;
-
-    // ⬇ SCORE VARIABLES
     public static int totalScore = 0;        // persists across scenes
     public static int lastLevelScore = 0;    // tracks per-level score
 
@@ -16,8 +14,8 @@ public class TargetManager : MonoBehaviour
     private bool levelComplete = false;
 
     [Header("UI")]
-    public TextMeshProUGUI winLoseText;      // assign TMP text
-    public TextMeshProUGUI scoreText;        // NEW: assign TMP score text
+    public TextMeshProUGUI winLoseText;
+    public TextMeshProUGUI scoreText;
 
     [Header("Level Transition")]
     public float delayBeforeNextLevel = 2f;
@@ -123,3 +121,6 @@ public class TargetManager : MonoBehaviour
         return destroyedTargets >= totalTargets && totalTargets > 0;
     }
 }
+
+
+

@@ -6129,7 +6129,6 @@ GameObject:
   - component: {fileID: 1484541940}
   - component: {fileID: 1484541943}
   - component: {fileID: 1484541944}
-  - component: {fileID: 1484541945}
   - component: {fileID: 1484541946}
   m_Layer: 0
   m_Name: Main Camera
@@ -6288,18 +6287,6 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
---- !u!114 &1484541945
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1484541939}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 715fa7b119fd7d14baa924673cb8b9c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CameraShake
 --- !u!114 &1484541946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8582,7 +8569,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: cbbd9532a57af274a9f0db14bc21fe6b,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.69588494
+      value: -0.718153
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cbbd9532a57af274a9f0db14bc21fe6b,
         type: 3}
@@ -8592,7 +8579,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: cbbd9532a57af274a9f0db14bc21fe6b,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7181533
+      value: 0.6958853
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cbbd9532a57af274a9f0db14bc21fe6b,
         type: 3}
@@ -8607,7 +8594,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: cbbd9532a57af274a9f0db14bc21fe6b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 91.804
+      value: 271.80402
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cbbd9532a57af274a9f0db14bc21fe6b,
         type: 3}
