@@ -227,4 +227,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Community tutorials and documentation
 ---
 
-**Made with ❤️ and Unity**
+**Made with Unity**
